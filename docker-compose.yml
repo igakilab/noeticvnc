@@ -1,0 +1,22 @@
+version: '3'
+services:
+  noeticvnc:
+    container_name: noeticvnc
+    build: .
+    volumes:
+      - catkin_ws:/catkin_ws
+      - ubuntu:/home/ubuntu
+    ports:
+      - "8000:8080"
+      - "5900:5900"
+      - "9090:9090" 
+      - "50001:50001"
+    environment:
+      - USER=ubuntu
+      - RESOLUTION=1024x768
+      - TZ=Asia/Tokyo
+    tty: true
+
+volumes:
+  catkin_ws:
+  ubuntu:
